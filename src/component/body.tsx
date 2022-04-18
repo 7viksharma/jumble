@@ -26,6 +26,7 @@ import {
 } from "@chakra-ui/react";
 import { SubjectSmall } from "./subjectsmall";
 import { Link as RouterLink } from "react-router-dom";
+import { Upload } from "./uploadingimage";
 
 export function StackBox() {
   return (
@@ -68,30 +69,32 @@ export function StackBox() {
           </RouterLink>
         </WrapItem>
         <WrapItem>
-          <Box
-            w="367px"
-            h="250px"
-            boxShadow="xl"
-            p="6"
-            rounded="lg"
-            bg="#77826B"
-          >
-            {/* <VStack spacing={4} align="stretch">
+          <RouterLink to="/studentsubject/machine_learning">
+            <Box
+              w="367px"
+              h="250px"
+              boxShadow="xl"
+              p="6"
+              rounded="lg"
+              bg="#77826B"
+            >
+              {/* <VStack spacing={4} align="stretch">
               <SubjectSmall />
             </VStack> */}
-            <HStack>
-              <CircularProgress value={40} color="green.400" size={100}>
-                <CircularProgressLabel>40%</CircularProgressLabel>
-              </CircularProgress>
+              <HStack>
+                <CircularProgress value={40} color="green.400" size={100}>
+                  <CircularProgressLabel>40%</CircularProgressLabel>
+                </CircularProgress>
 
-              <Text fontSize={25} align="center" color="white">
-                Machine Learning
+                <Text fontSize={25} align="center" color="white">
+                  Machine Learning
+                </Text>
+              </HStack>
+              <Text marginTop={20} fontSize={20} align="center" color="white">
+                Mr. Paresh Saxena
               </Text>
-            </HStack>
-            <Text marginTop={20} fontSize={20} align="center" color="white">
-              Mr. Paresh Saxena
-            </Text>
-          </Box>
+            </Box>
+          </RouterLink>
         </WrapItem>
         <WrapItem>
           <Box

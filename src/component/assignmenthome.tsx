@@ -9,6 +9,14 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { FaCheckCircle } from "react-icons/fa";
@@ -32,6 +40,7 @@ const PackageTier = ({
   const colorTextDark = checked ? "white" : "cyan.500";
   const bgColorDark = checked ? "cyan.400" : "gray.200";
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Stack
       p={3}
@@ -64,14 +73,58 @@ const PackageTier = ({
           size="md"
           color={useColorModeValue(colorTextLight, colorTextDark)}
           bgColor={useColorModeValue(bgColorLight, bgColorDark)}
+          onClick={onOpen}
         >
-          Start
+          Submit
         </Button>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Modal Title</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>Assignment Question</ModalBody>
+
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={onClose}>
+                Add File
+              </Button>
+              <Button variant="ghost" colorScheme="red">
+                Remove file
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </Stack>
     </Stack>
   );
 };
-const QuizHome = () => {
+// function BasicUsage() {
+//   const { isOpen, onOpen, onClose } = useDisclosure();
+//   return (
+//     <>
+//       <Button onClick={onOpen}>Open Modal</Button>
+
+//       <Modal isOpen={isOpen} onClose={onClose}>
+//         <ModalOverlay />
+//         <ModalContent>
+//           <ModalHeader>Modal Title</ModalHeader>
+//           <ModalCloseButton />
+//           <ModalBody>
+//             nfreferfergnjnoiinio
+//           </ModalBody>
+
+//           <ModalFooter>
+//             <Button colorScheme="blue" mr={3} onClick={onClose}>
+//               Close
+//             </Button>
+//             <Button variant="ghost">Secondary Action</Button>
+//           </ModalFooter>
+//         </ModalContent>
+//       </Modal>
+//     </>
+//   );
+// }
+const AssignmentHome = () => {
   return (
     <Box py={6} px={5} minW={"100vh"}>
       <Stack spacing={4} width={"100%"} direction={"column"}>
@@ -95,7 +148,7 @@ const QuizHome = () => {
             textAlign={"center"}
           >
             <Heading size={"lg"}>
-              <Text color="cyan.400">Upcoming Quizzes</Text>
+              <Text color="cyan.400">Upcoming Assignments</Text>
             </Heading>
           </Stack>
           <Stack
@@ -109,21 +162,21 @@ const QuizHome = () => {
         </Stack>
         <Divider />
         <PackageTier
-          title={"1300"}
+          title={"file type: .pdf, .doc"}
           checked={true}
-          typePlan="Machine Learning"
+          typePlan="Database Management System"
           options={options}
         />
         <Divider />
         <PackageTier
-          title={"1100"}
-          typePlan="Artificial Intelligence"
+          title={"file type: .pdf, .doc"}
+          typePlan="International Business"
           options={options}
         />
         <Divider />
         <PackageTier
-          title={"1500"}
-          typePlan="Operating System"
+          title={"file type: .c"}
+          typePlan="Design and Analysis of Algorithm"
           options={options}
         />
       </Stack>
@@ -131,4 +184,4 @@ const QuizHome = () => {
   );
 };
 
-export default QuizHome;
+export default AssignmentHome;
