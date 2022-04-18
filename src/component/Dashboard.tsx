@@ -230,7 +230,7 @@ export default function Dashboard() {
           }
           p="0px"
           maxW={{ sm: "320px", md: "100%" }}
-          shadow="xl"
+          shadow={useColorModeValue("xl", "dark-lg")}
           rounded="lg"
         >
           <Flex direction="column" mb="40px" p="28px 0px 0px 22px">
@@ -251,7 +251,7 @@ export default function Dashboard() {
         <Card
           p="0px"
           maxW={{ sm: "320px", md: "100%" }}
-          shadow="xl"
+          shadow={useColorModeValue("xl", "dark-lg")}
           rounded="lg"
         >
           <Flex direction="column" mb="40px" p="28px 0px 0px 22px">
